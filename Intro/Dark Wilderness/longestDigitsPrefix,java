@@ -1,0 +1,41 @@
+Given a string, output its longest prefix which contains only digits.
+
+Example
+
+For inputString = "123aa1", the output should be
+solution(inputString) = "123".
+
+Input/Output
+
+[execution time limit] 3 seconds (java)
+
+[memory limit] 1 GB
+
+[input] string inputString
+
+Guaranteed constraints:
+3 ≤ inputString.length ≤ 100.
+
+[output] string
+----------------------
+
+public class LongestDigitPrefix {
+
+    public static String solution(String inputString) {
+        StringBuilder longestPrefix = new StringBuilder();
+        for (char c : inputString.toCharArray()) {
+            if (Character.isDigit(c)) {
+                longestPrefix.append(c);
+            } else {
+                break;
+            }
+        }
+        return longestPrefix.toString();
+    }
+
+    public static void main(String[] args) {
+        String inputString = "123aa1";
+        String longestPrefix = solution(inputString);
+        System.out.println("The longest prefix containing only digits: " + longestPrefix);
+    }
+}
